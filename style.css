@@ -1,0 +1,236 @@
+@import url(https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;700&display=swap);
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    --c-bg-main: hsl(0, 0%, 90%);
+    --c-bg-keypad: hsl(0, 5%, 81%);
+    --c-bg-screen: hsl(0, 0%, 93%);
+    --c-keys-func: hsl(185, 42%, 37%);
+    --c-keys-func-shadow: hsl(185, 58%, 25%);
+    --c-keys-equal: hsl(25, 98%, 40%);
+    --c-keys-equal-shadow: hsl(25, 99%, 27%);
+    --c-toggle: hsl(25, 98%, 40%);
+    --c-keys: hsl(45, 7%, 89%);
+    --c-keys-shadow: hsl(35, 11%, 61%);
+    --c-text-primary: hsl(60, 10%, 19%);
+    --c-text-secondary: hsl(0, 0%, 100%);
+    --c-text-display: hsl(60, 10%, 19%);
+
+    font-family: "Spartan", sans-serif;
+    padding: 24px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.overlay {
+    transition: 0.5s;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--c-bg-main);
+    z-index: -1;
+}
+
+
+
+
+body.dark {
+    --c-bg-main: hsl(222, 26%, 31%);
+    --c-text-primary: hsl(221, 14%, 31%);
+    --c-text-secondary: hsl(0, 0%, 100%);
+    --c-calc-title: #fff;
+    --c-calc-text: #fff;
+    --c-previous-display: #585e6c;
+    --c-current-display: #5d6271;
+    --c-text-display: hsl(0, 0%, 100%);
+    --c-bg-keypad: #5d6271;
+    --c-keys: hsl(30, 25%, 89%);
+    --c-keys-shadow: hsl(28, 16%, 65%);
+    --c-keys-func: hsl(225, 21%, 49%);
+    --c-keys-func-shadow: hsl(224, 28%, 35%);
+    --c-keys-equal: hsl(6, 63%, 50%);
+    --c-keys-equal-shadow: hsl(6, 70%, 34%);
+    --c-bg-screen: hsl(224, 36%, 15%);
+}
+
+
+
+
+
+
+.calc__container {
+    display: flex;
+    flex-flow: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 540px;
+
+}
+
+.calc__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+.calc__title {
+    font-size: 3rem;
+    color: var(--c-calc-title);
+    transition: 0.2s;
+
+
+}
+
+.calc__switch-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calc__text {
+    font-size: 1.4rem;
+    color: var(--c-calc-text);
+    font-weight: 700;
+    margin-right: 10px;
+    margin-top: 6px;
+    transition: 0.2s;
+
+}
+
+.calc__switch {}
+
+.calc__slider {
+    position: relative;
+    height: 38px;
+    width: 76px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.calc__slider.active {
+    background-color: #fff;
+    transition: 0.5s;
+}
+
+.calc__slider.active .calc__light-mode {
+    transform: translateX(38px);
+    background-color: #000;
+}
+
+.calc__light-mode {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: 4px;
+    left: 4px;
+    transition: 0.5s;
+
+}
+
+
+
+.calc__display {
+    background-color: var(--c-bg-screen);
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 24px;
+    min-height: 130px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.calc__display-value--previous {
+    color: var(--c-text-display);
+
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 10px;
+    opacity: 0.3;
+}
+
+.calc__display-value--current {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--c-text-display);
+
+}
+
+.calc__keypad {
+    border-radius: 10px;
+    background-color: var(--c-bg-keypad);
+    transition: 0.1s;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 24px 16px 24px 24px;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.calc__key--num {
+    background-color: var(--c-keys);
+    color: var(--c-text-primary);
+    box-shadow: 0px 4px var(--c-keys-shadow);
+    transition: 0.1s;
+    width: 22.5%;
+    height: 50px;
+    font-size: 2.4rem;
+    border-radius: 6px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+}
+
+.calc__key-special {
+    background-color: var(--c-keys-func);
+    box-shadow: 0px 4px var(--c-keys-func-shadow);
+    color: var(--c-text-secondary);
+    transition: 0.1s;
+    
+}
+
+
+.calc__key--equal {
+    background-color: var(--c-keys-equal);
+    box-shadow: 0px 4px var(--c-keys-equal-shadow);
+    color: #fff;
+    transition: 0.1s;
+
+}
+
+
+.calc__key--large {
+    width: calc(46% + 10px);
+}
+
+.click-key-num {
+    transform: translateY(4px);
+    box-shadow: none;
+}
