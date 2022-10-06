@@ -197,7 +197,7 @@ body.dark {
     color: var(--c-text-primary);
     box-shadow: 0px 4px var(--c-keys-shadow);
     transition: 0.1s;
-    width: 21.5%;
+    width: 20.5%;
     height: 50px;
     font-size: 2.4rem;
     border-radius: 6px;
@@ -227,7 +227,7 @@ body.dark {
 
 
 .calc__key--large {
-    width: calc(44% + 10px);
+    width: calc(41% + 10px);
 }
 
 .click-key-num {
@@ -235,5 +235,3 @@ body.dark {
     box-shadow: none;
 }
 
-
-/* update di */
