@@ -82,3 +82,19 @@ keyNums.forEach(function (keyNum) {
 });
 
 
+
+
+// document.addEventListener('keydown', (e) => {
+//     console.log(e.keyCode);
+//     if (e.keyCode == '13' || e.keyCode == '231') {
+//         result.innerHTML = eval(previousNum.innerHTML + result.innerHTML);
+//         previousNum.innerHTML = '';
+//     }
+//     if (result.innerHTML == '0') {
+//         result.innerHTML = '';
+//         if (keyNum.innerHTML == '=') {
+//             result.innerHTML = '0';
+//         }
+//     }
+    
+// });
